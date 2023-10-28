@@ -12,8 +12,8 @@
           row.push("white")
         }
         for(let i=0;i<task.duracion;i++){
-          const {hlibre}=task
-          row.push(hlibre?"green":"red")
+          const {htotal}=task
+          row.push(htotal?"green":"red")
         }
         max_lenght=task.efinish
         matrix=[...matrix,row]; 
@@ -73,7 +73,6 @@
     border-bottom: 1px solid #111;
   }
   .row{
-    width: 100%;
     display: flex;
     align-items: start;
     padding: 0;
