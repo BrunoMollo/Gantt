@@ -32,16 +32,17 @@
   function reset(){
     matrix=[]
     max_lenght=0
+    value=""
   }
 
 </script>
 
-<h1 >Gannt</h1>
+<h1 >Gantt</h1>
 <textarea bind:value={value} cols="30" rows="10"></textarea>
-<button on:click={parse}>click</button>
-<button on:click={reset}>reset</button>
+<button on:click={parse}>Generate</button>
+<button on:click={reset}>Reset</button>
   <br><br>
-
+  
 {#if max_lenght!==0}
 <main>
 <div class="row">
@@ -72,6 +73,7 @@
     border-bottom: 1px solid #111;
   }
   .row{
+    width: 100%;
     display: flex;
     align-items: start;
     padding: 0;
