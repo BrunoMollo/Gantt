@@ -1,5 +1,6 @@
 <script lang="ts">
   let value=""
+  let cut=null
   let matrix=[]
   let max_lenght=0 
 
@@ -33,12 +34,16 @@
     matrix=[]
     max_lenght=0
     value=""
+    cut=null
   }
 
 </script>
 
 <h1 >Gantt</h1>
-<textarea bind:value={value} cols="30" rows="10"></textarea>
+<textarea bind:value={value} cols="55" rows="10" placeholder="json..."></textarea>
+<br>
+<input placeholder="control day" type="number" bind:value={cut} >
+<br>
 <button on:click={parse}>Generate</button>
 <button on:click={reset}>Reset</button>
   <br><br>
@@ -55,8 +60,8 @@
 {#each matrix as row, i }
 <div class="row">
   <div class="cell">{i+1}</div>
-  {#each row as cell}
-    <div class="cell" style="background-color: {cell};" />
+  {#each row as cell, j}
+    <div class="cell"  style="background-color: {cell}; {(cut==j)?'border-left: 4px solid blue':''}" />
   {/each}
 </div>
 {/each}
