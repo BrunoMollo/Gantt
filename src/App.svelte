@@ -26,7 +26,7 @@
       }
     }
     catch(e){
-      alert("Eso no es json valido pedazode gil")
+      alert("Eso no es json valido pedazo de gil")
     }
   }
 
@@ -40,7 +40,7 @@
 </script>
 
 <h1 >Gantt</h1>
-<textarea bind:value={value} cols="55" rows="10" placeholder="json..."></textarea>
+<textarea bind:value={value} cols="50" rows="10" placeholder="json..."></textarea>
 <br>
 <input placeholder="control day" type="number" bind:value={cut} >
 <br>
@@ -66,6 +66,7 @@
 </div>
 {/each}
 </main>
+<p>App made by Bruno Mollo</p>
 {/if}
 
 <style>
@@ -73,15 +74,14 @@
     display: inline-block;
     margin: 0;
     height: 20px;
-    width: 20px;
-    border-left: 1px solid #111;
-    border-bottom: 1px solid #111;
+    min-width: 24px;
+    outline: 1px solid #111;
+    background-color: #111;
   }
   .row{
     display: flex;
     align-items: start;
     padding: 0;
     margin:0;
-    background-color: black;
   }
 </style>
