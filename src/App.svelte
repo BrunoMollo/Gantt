@@ -4,36 +4,42 @@
   let max_lenght=0 
 
   function parse(){
-    const tasks= JSON.parse(value)
-    for(let task of tasks){
-      let row=[]
-      for(let i=0;i<task.estart;i++){
-        row.push("white")
-      }
-      for(let i=0;i<task.duracion;i++){
-        if(task.hlibre===0){
-          row.push("red")
+    try{
+      const tasks= JSON.parse(value)
+      for(let task of tasks){
+        const row=[]
+        for(let i=0;i<task.estart;i++){
+          row.push("white")
         }
-        else{
-          row.push("green")
+        for(let i=0;i<task.duracion;i++){
+          const {hlibre}=task
+          row.push(hlibre?"green":"red")
         }
+        max_lenght=task.efinish
+        matrix=[...matrix,row]; 
       }
-      max_lenght=task.efinish
-      matrix=[...matrix,row]; 
-    }
-    for(let row of matrix){
-      for (let i=row.length;i<max_lenght;i++){
-        row.push("white")
+      for(let row of matrix){
+        for (let i=row.length;i<max_lenght;i++){
+          row.push("white")
+        }
       }
     }
+    catch(e){
+      alert("Eso no es json valido pedazode gil")
+    }
+  }
+
+  function reset(){
+    matrix=[]
+    max_lenght=0
   }
 
 </script>
 
-<h1>Gannt</h1>
+<h1 >Gannt</h1>
 <textarea bind:value={value} cols="30" rows="10"></textarea>
 <button on:click={parse}>click</button>
-<button on:click={()=>matrix=[]}>reset</button>
+<button on:click={reset}>reset</button>
   <br><br>
 
 {#if max_lenght!==0}
