@@ -1,7 +1,4 @@
 <script lang="ts">
-    import { fade } from "svelte/types/runtime/transition";
-
-
   let value=""
   let matrix=[]
   let max_lenght=0 
