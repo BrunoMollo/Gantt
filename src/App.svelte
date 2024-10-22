@@ -84,6 +84,7 @@
   <p>App made by Bruno Mollo</p>
 {/if}
 
+  <a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Contactar a Soporte</a>
 <style>
   .cell {
     display: inline-block;
