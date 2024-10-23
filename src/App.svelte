@@ -40,11 +40,10 @@
 <h1>Gantt</h1>
 <div style="">
   <ol>
+    <li>Usar una navegador basado en Chome (no seas gil, firefox no)</li>
     <li>
       Entrar a <a href="https://creadorpertcpm.es/public/">esta pagina</a>
     </li>
-
-    <li>Usar una navegaor basado en Chome (no seas gil)</li>
     <li>Crear la Red de tareas</li>
     <li>Abrir la consola (Ctrl+Shift+I)</li>
     <li>Presionar el boton <b>Generar Diagrama</b></li>
