@@ -35,6 +35,13 @@
     value = "";
     cut = null;
   }
+
+  function beAnoying(e:Event){
+  const x = Math.floor(Math.random() * 800);
+  const y = Math.floor(Math.random() * 100);
+    //@ts-ignore
+  e.target.setAttribute('style', 'translate: '+x+'px '+y+'px');
+  }
 </script>
 
 <h1>Gantt</h1>
@@ -51,11 +58,11 @@
     <li>Copiar y pegar el json a continuacion</li>
   </ol>
 </div>
-<textarea bind:value cols="50" rows="10" placeholder="json..."></textarea>
+<textarea bind:value cols="50" rows="10" placeholder="json..." ></textarea>
 <br />
 <input placeholder="control day" type="number" bind:value={cut} />
 <br />
-<button on:click={parse}>Generar</button>
+<button on:click={parse} on:mouseenter={beAnoying}>Generar</button>
 <button on:click={reset}>Reset</button>
 <br /><br />
 
