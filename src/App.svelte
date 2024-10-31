@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { flip } from "svelte/animate";
+    import { fly } from "svelte/transition";
+
   let value = "";
   let cut = null;
   let matrix = [];
@@ -36,12 +39,6 @@
     cut = null;
   }
 
-  function beAnoying(e:Event){
-  const x = Math.floor(Math.random() * 800);
-  const y = Math.floor(Math.random() * 100);
-    //@ts-ignore
-  e.target.setAttribute('style', 'translate: '+x+'px '+y+'px');
-  }
 </script>
 
 <h1>Gantt</h1>
@@ -49,7 +46,7 @@
   <ol>
     <li>Usar una navegador basado en Chome (no seas gil, firefox no)</li>
     <li>
-      Entrar a <a href="https://creadorpertcpm.es/public/">esta pagina</a>
+      Entrar a <a href="https://creadorpertcpm.es/public/" target="_blank">esta pagina</a>
     </li>
     <li>Crear la Red de tareas</li>
     <li>Abrir la consola (Ctrl+Shift+I)</li>
@@ -62,34 +59,35 @@
 <br />
 <input placeholder="control day" type="number" bind:value={cut} />
 <br />
-<button on:click={parse} on:mouseenter={beAnoying}>Generar</button>
+<button on:click={parse} >Generar</button>
 <button on:click={reset}>Reset</button>
 <br /><br />
 
 {#if max_lenght !== 0}
-  <main>
-    <div class="row">
-      <div class="cell"></div>
-      {#each Array(max_lenght).fill(0) as _, i}
-        <div class="cell">{i + 1}</div>
-      {/each}
-    </div>
+  <img src="fera.jpg" alt="fera" transition:fly={{ y: -1000, x:-100, duration: 2000 }} />
+  <!-- <main> -->
+  <!--   <div class="row"> -->
+  <!--     <div class="cell"></div> -->
+  <!--     {#each Array(max_lenght).fill(0) as _, i} -->
+  <!--       <div class="cell">{i + 1}</div> -->
+  <!--     {/each} -->
+  <!--   </div> -->
 
-    {#each matrix as row, i}
-      <div class="row">
-        <div class="cell">{i + 1}</div>
-        {#each row as cell, j}
-          <div
-            class="cell"
-            style="background-color: {cell}; {cut == j
-              ? 'border-left: 4px solid blue'
-              : ''}"
-          />
-        {/each}
-      </div>
-    {/each}
-  </main>
-  <p>App made by Bruno Mollo</p>
+  <!--   {#each matrix as row, i} -->
+  <!--     <div class="row"> -->
+  <!--       <div class="cell">{i + 1}</div> -->
+  <!--       {#each row as cell, j} -->
+  <!--         <div -->
+  <!--           class="cell" -->
+  <!--           style="background-color: {cell}; {cut == j -->
+  <!--             ? 'border-left: 4px solid blue' -->
+  <!--             : ''}" -->
+  <!--         /> -->
+  <!--       {/each} -->
+  <!--     </div> -->
+  <!--   {/each} -->
+  <!-- </main> -->
+  <p>App made by <a href="https://github.com/BrunoMollo?tab=repositories" target="_blank">Bruno Mollo</a></p>
 {/if}
 
   <a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Contactar a Soporte</a>
