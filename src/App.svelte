@@ -39,6 +39,7 @@
     cut = null;
   }
 
+    let count=0
 </script>
 
 <h1>Gantt</h1>
@@ -55,7 +56,46 @@
     <li>Copiar y pegar el json a continuacion</li>
   </ol>
 </div>
-<textarea bind:value cols="50" rows="10" placeholder="json..." ></textarea>
+<textarea bind:value cols="50" rows="10" placeholder="json..." on:paste={(e)=>{
+  if(count==0){
+    e.preventDefault();
+    value="Puto el que lee"
+  }
+  if(count==1){
+    e.preventDefault();
+    value="Posta que sos re trolo"
+  }
+  if(count==2){
+    e.preventDefault();
+    value="Sos incistente che"
+  }
+  if(count==3){
+    e.preventDefault();
+    value="Amigo, no te preocupes, la materia se puede recursar"
+  }
+  if(count==4){
+    e.preventDefault();
+    value="Que pensaria Ferraboli si te viera asi??"
+  }
+  if(count==5){
+    e.preventDefault();
+    value="Capaz que tendrias que haber estudiado"
+  }
+  if(count==6){
+    e.preventDefault();
+    value="Bruno se esta cagando de risa en este momento"
+  }
+  if(count==7){
+    e.preventDefault();
+    value="Ya me das lastima"
+  }
+  if(count==8){
+    e.preventDefault();
+    value="Bueno, ya fue"
+  }
+
+  count++
+}}></textarea>
 <br />
 <input placeholder="control day" type="number" bind:value={cut} />
 <br />
@@ -64,33 +104,32 @@
 <br /><br />
 
 {#if max_lenght !== 0}
-  <img src="fera.jpg" alt="fera" transition:fly={{ y: -1000, x:-100, duration: 2000 }} />
-  <!-- <main> -->
-  <!--   <div class="row"> -->
-  <!--     <div class="cell"></div> -->
-  <!--     {#each Array(max_lenght).fill(0) as _, i} -->
-  <!--       <div class="cell">{i + 1}</div> -->
-  <!--     {/each} -->
-  <!--   </div> -->
+  <main>
+    <div class="row">
+      <div class="cell"></div>
+      {#each Array(max_lenght).fill(0) as _, i}
+        <div class="cell">{i + 1}</div>
+      {/each}
+    </div>
 
-  <!--   {#each matrix as row, i} -->
-  <!--     <div class="row"> -->
-  <!--       <div class="cell">{i + 1}</div> -->
-  <!--       {#each row as cell, j} -->
-  <!--         <div -->
-  <!--           class="cell" -->
-  <!--           style="background-color: {cell}; {cut == j -->
-  <!--             ? 'border-left: 4px solid blue' -->
-  <!--             : ''}" -->
-  <!--         /> -->
-  <!--       {/each} -->
-  <!--     </div> -->
-  <!--   {/each} -->
-  <!-- </main> -->
+    {#each matrix as row, i}
+      <div class="row">
+        <div class="cell">{i + 1}</div>
+        {#each row as cell, j}
+          <div
+            class="cell"
+            style="background-color: {cell}; {cut == j
+              ? 'border-left: 4px solid blue'
+              : ''}"
+          />
+        {/each}
+      </div>
+    {/each}
+  </main>
   <p>App made by <a href="https://github.com/BrunoMollo?tab=repositories" target="_blank">Bruno Mollo</a></p>
 {/if}
 
-  <a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Contactar a Soporte</a>
+<a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Contactar a Soporte</a>
 <style>
   .cell {
     display: inline-block;
