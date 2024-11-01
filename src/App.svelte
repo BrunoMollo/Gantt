@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { flip } from "svelte/animate";
-    import { fly } from "svelte/transition";
 
   let value = "";
   let cut = null;
@@ -39,7 +37,6 @@
     cut = null;
   }
 
-    let count=0
 </script>
 
 <h1>Gantt</h1>
@@ -56,46 +53,7 @@
     <li>Copiar y pegar el json a continuacion</li>
   </ol>
 </div>
-<textarea bind:value cols="50" rows="10" placeholder="json..." on:paste={(e)=>{
-  if(count==0){
-    e.preventDefault();
-    value="Puto el que lee"
-  }
-  if(count==1){
-    e.preventDefault();
-    value="Posta que sos re trolo"
-  }
-  if(count==2){
-    e.preventDefault();
-    value="Sos incistente che"
-  }
-  if(count==3){
-    e.preventDefault();
-    value="Amigo, no te preocupes, la materia se puede recursar"
-  }
-  if(count==4){
-    e.preventDefault();
-    value="Que pensaria Ferraboli si te viera asi??"
-  }
-  if(count==5){
-    e.preventDefault();
-    value="Capaz que tendrias que haber estudiado"
-  }
-  if(count==6){
-    e.preventDefault();
-    value="Bruno se esta cagando de risa en este momento"
-  }
-  if(count==7){
-    e.preventDefault();
-    value="Ya me das lastima"
-  }
-  if(count==8){
-    e.preventDefault();
-    value="Bueno, ya fue"
-  }
-
-  count++
-}}></textarea>
+<textarea bind:value cols="50" rows="10" placeholder="json..."></textarea>
 <br />
 <input placeholder="control day" type="number" bind:value={cut} />
 <br />
