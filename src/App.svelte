@@ -37,6 +37,8 @@
     cut = null;
   }
 
+
+  const href="https://www.mercadopago.com.ar/money-out/transfer/new-account"
 </script>
 
 <h1>Gantt</h1>
@@ -62,6 +64,21 @@
 <br /><br />
 
 {#if max_lenght !== 0}
+  <p>Se aceptan donaciones al siguiente alias: <b>jirafa.verde.drogada</b> 🦒
+  (<a {href} on:click={(e)=>{
+    e.preventDefault();
+    navigator.clipboard.writeText("jirafa.verde.drogada")
+    if(confirm("Alias copiado al portapapeles, ¿desea ir a mercado pago?")){
+      window.open(href, '_blank').focus();
+    }else{
+      if(confirm("¿Enserio? creo que al menos me merezco una cerveza")){
+         window.open(href, '_blank').focus();
+      }
+    }
+  }}>Copiar</a>)
+  </p>
+
+
   <main>
     <div class="row">
       <div class="cell"></div>
@@ -85,6 +102,7 @@
     {/each}
   </main>
   <p>App made by <a href="https://github.com/BrunoMollo?tab=repositories" target="_blank">Bruno Mollo</a></p>
+
 {/if}
 
 <a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Contactar a Soporte</a>
